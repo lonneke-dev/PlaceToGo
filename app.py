@@ -37,13 +37,13 @@ def signup():
 
         signup = {
             "username": request.form.get("username").lower(),
-            "passsword": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(signup)
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Succesfull")
-    
+
     return render_template("signup.html")
 
 
@@ -56,8 +56,8 @@ def signin():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("signin"))
