@@ -1,6 +1,13 @@
-
 .logo {
     width: 270px;
     height: 50px;
     margin-top: 4px;
+}
+
+button {
+    border-radius: 2rem;
+}
+
+.flashes h4 {
+    line-height: 2;
 }
