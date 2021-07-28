@@ -4,7 +4,7 @@
 
 This project is my third assignment of the Full stack development course I am following at CodeInstitute to show my skills with HTML, CSS, JavaScript, Python, Flask and MongoDB.
 
-<h2 align="center"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftmi.news%2Ftmi-is-under-construction%2F&psig=AOvVaw21JMmwLsZBddpwaZiMS1q7&ust=1627410986696000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMCw1sKwgfICFQAAAAAdAAAAABAD"></h2>
+<h2 align="center"><img src="http://www.kaaman.nl/underconstruction.jpg"></h2>
 
 PlaceToGo is a site that allows users to create, share, edit and delete posts about places they have been and recommend. Users are also able to see other users posts and save them to 
 view later. 
@@ -168,7 +168,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Media
 
--   All Images were created by the developer.
+-   https://www.pikpng.com/pngvi/hoTRibb_smile-to-unlock-tourist-destination-png-clipart/ for the logo
 
 ### Acknowledgements
 
