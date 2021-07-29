@@ -22,7 +22,7 @@
               <ul class="left hide-on-med-and-down">
                 <li><a href="{{ url_for('get_places') }}">Home</a></li>
                 <li><a href="addplace.html">Add place</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
               </ul>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('signin') }}">Sign In</a></li>
@@ -33,7 +33,7 @@
         <ul class="sidenav" id="mobile-demo">
                 <li><a href="{{ url_for('get_places') }}">Home</a></li>
                 <li><a href="addplace.html">Add place</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('signin') }}">Sign In</a></li>
         </ul>
     </header>
