@@ -1,64 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
-    {% endblock %}
-    <title>Place To Go</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  {% block styles %}
+  {% endblock %}
+  <title>Place To Go</title>
 </head>
+
 <body>
 
-    <header>
-        <!-- Navbar -->
-        <nav>
-            <div class="nav-wrapper teal darken-4">
-              <a href="{{ url_for('get_places') }}" class="brand-logo center"><img src="../../static/images/logo.png" class="logo" alt="logo"></a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
-              <ul class="left hide-on-med-and-down">
-                <li><a href="{{ url_for('get_places') }}">Home</a></li>
-                <li><a href="addplace.html">Add place</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-              </ul>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('signin') }}">Sign In</a></li>
-              </ul>
-            </div>
-        </nav>
-        <!-- Sidenav -->
-        <ul class="sidenav" id="mobile-demo">
-                <li><a href="{{ url_for('get_places') }}">Home</a></li>
-                <li><a href="addplace.html">Add place</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+  <header>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-wrapper teal darken-4">
+        <a href="{{ url_for('get_places') }}" class="brand-logo center"><img src="../../static/images/logo.png"
+            class="logo" alt="logo"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
+          <ul class="left hide-on-med-and-down">
+            <li><a href="{{ url_for('get_places') }}">Home</a></li>
+          {% if session.user %}
+            <li><a href="addplace.html">Add place</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('signout') }}">Sign Out</a></li>  
+          {% else %}
+            <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+          {% endif %}
         </ul>
-    </header>
+      </div>
+    </nav>
+    <!-- Sidenav -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="{{ url_for('get_places') }}">Home</a></li>
+      {% if session.user %}
+      <li><a href="addplace.html">Add place</a></li>
+      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+      <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+      {% else %}
+      <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+      {% endif %}
+    </ul>
+  </header>
 
-    <section>
-      <!-- Flash messages -->
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            <div class="row flashes">
-              <h4 class="teal darken-3 center-align">{{ message }}</h4>
-            </div>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-    </section>
+  <section>
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+      <h4 class="teal darken-3 center-align">{{ message }}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </section>
 
-    {% block content %}
-    {% endblock %}
+  {% block content %}
+  {% endblock %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts %}
+  {% endblock %}
 
 </body>
 </html>
