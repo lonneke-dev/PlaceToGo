@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_places")
 def get_places():
-    places = mongo.db.places.find()
+    places = list(mongo.db.places.find())
     return render_template("places.html", places=places)
 
 
@@ -108,6 +108,15 @@ def add_place():
 
     continents = mongo.db.continents.find().sort("continent_name", 1)
     return render_template("add_place.html", continents=continents)
+
+
+@app.route("/edit_place/<place_id>", methods=["GET", "POST"])
+def edit_place(place_id):
+    place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
+
+    continents = mongo.db.continents.find().sort("continent_name", 1)
+    return render_template(
+        "edit_place.html", place=place, continents=continents)
 
 
 if __name__ == "__main__":

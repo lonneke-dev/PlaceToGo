@@ -14,7 +14,7 @@
                 <li><p>{{ place.description }}</p></li>
                 <li><p><em>by: {{ place.created_by }}</em></p></li>
                 <div class="col9">
-                    <a class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">edit</i></a>
+                    <a href="{{ url_for('edit_place', place_id=place._id) }}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">edit</i></a>
                 </div>
             </ul>
         </div>

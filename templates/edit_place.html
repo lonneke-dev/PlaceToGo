@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="teal-text text-darken-4 center-align">Edit Place</h3>
+
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_place', place_id=place._id) }}">
+        <!-- Place Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">location_on</i>
+                <input id="place_name" name="place_name" minlength="3" data-length="20" type="text" class="validate"
+                    required>
+                <label for="place_name">Place Name</label>
+            </div>
+        </div>
+        <!-- City -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">location_city</i>
+                <input id="city" name="city" minlength="3" data-length="20" type="text" class="validate" required>
+                <label for="city">City</label>
+            </div>
+        </div>
+        <!-- Country -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">flag</i>
+                <input id="country" name="country" minlength="3" data-length="20" type="text" class="validate" required>
+                <label for="country">Country</label>
+            </div>
+        </div>
+        <!-- Continent Dropdown -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">public</i>
+                <select id="continent_name" name="continent_name" class="validate" required>
+                    {% for continent in continents %}
+                    <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>Choose Continent</label>
+            </div>
+        </div>
+        <!-- Description Textarea -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">article</i>
+                <textarea id="description" name="description" minlength="5" data-length="200"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="description">Share Your Experience!</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="btn-large teal darken-4" type="submit">Edit
+                    <i class="material-icons right">send</i>
+                  </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
