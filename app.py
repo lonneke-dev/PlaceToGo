@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_places")
 def get_places():
-    places = list(mongo.db.places.find())
+    places = mongo.db.places.find()
     return render_template("places.html", places=places)
 
 
@@ -58,11 +58,11 @@ def signin():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
                         request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("signin"))
