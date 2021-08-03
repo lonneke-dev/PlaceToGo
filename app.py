@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -93,7 +94,8 @@ def signout():
 
 @app.route("/add_place")
 def add_place():
-    return render_template("add_place.html")
+    continents = mongo.db.continents.find().sort("continent_name", 1)
+    return render_template("add_place.html", continents=continents)
 
 
 if __name__ == "__main__":
