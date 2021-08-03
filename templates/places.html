@@ -5,34 +5,14 @@
 
     {% for place in places %}
     <div class="row place">
-        <div class="col s12 m6 l4">
+        <div class="col s4 m6 l4">
             <ul>
                 <li><strong>{{ place.place_name }}</strong></li>
                 <li>{{ place.city }}</li>
                 <li>{{ place.country }}</li>
-                <li>{{ place.url }}</li>
                 <li>{{ place.continent }}</li>
                 <li><p>{{ place.description }}</p></li>
-            </ul>
-        </div>
-        <div class="col s12 m6 l4">
-            <ul>
-                <li><strong>{{ place.place_name }}</strong></li>
-                <li>{{ place.city }}</li>
-                <li>{{ place.country }}</li>
-                <li>{{ place.url }}</li>
-                <li>{{ place.continent }}</li>
-                <li><p>{{ place.description }}</p></li>
-            </ul>
-        </div>
-        <div class="col s12 m6 l4">
-            <ul>
-                <li><strong>{{ place.place_name }}</strong></li>
-                <li>{{ place.city }}</li>
-                <li>{{ place.country }}</li>
-                <li>{{ place.url }}</li>
-                <li>{{ place.continent }}</li>
-                <li><p>{{ place.description }}</p></li>
+                <li><p><em>by: {{ place.created_by }}</em></p></li>
             </ul>
         </div>
     </div>

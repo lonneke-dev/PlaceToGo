@@ -4,7 +4,8 @@
 <h3 class="teal-text text-darken-4 center-align">Add Place</h3>
 
 <div class="row">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('add_place') }}">
+        <!-- Place Name -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_on</i>
@@ -13,6 +14,7 @@
                 <label for="place_name">Place Name</label>
             </div>
         </div>
+        <!-- City -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_city</i>
@@ -20,6 +22,7 @@
                 <label for="city">City</label>
             </div>
         </div>
+        <!-- Country -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">flag</i>
@@ -27,31 +30,33 @@
                 <label for="country">Country</label>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">photo_camera</i>
-                <input id="url" name="url" type="url" class="validate" required>
-                <label for="url">Upload Image</label>
-            </div>
-        </div>
+        <!-- Continent Dropdown -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">public</i>
                 <select id="continent_name" name="continent_name" class="validate" required>
-                    <option value="" disabled selected>Choose Continent</option>
                     {% for continent in continents %}
                     <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
                     {% endfor %}
                 </select>
-                <label>Materialize Select</label>
+                <label>Choose Continent</label>
             </div>
         </div>
+        <!-- Description Textarea -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">article</i>
                 <textarea id="description" name="description" minlength="5" data-length="200"
                     class="materialize-textarea validate" required></textarea>
                 <label for="description">Share Your Experience!</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="btn-large teal darken-4" type="submit">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
             </div>
         </div>
     </form>

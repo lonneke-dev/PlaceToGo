@@ -92,8 +92,21 @@ def signout():
     return redirect(url_for("signin"))
 
 
-@app.route("/add_place")
+@app.route("/add_place", methods=["GET", "POST"])
 def add_place():
+    if request.method == "POST":
+        place = {
+            "place_name": request.form.get("place_name"),
+            "city": request.form.get("city"),
+            "country": request.form.get("country"),
+            "continent_name": request.form.get("continent_name"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        mongo.db.places.insert_one(place)
+        flash("Place Succesfully Added")
+        return redirect(url_for("get_places"))
+
     continents = mongo.db.continents.find().sort("continent_name", 1)
     return render_template("add_place.html", continents=continents)
 

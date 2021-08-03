@@ -1,4 +1,5 @@
 click==8.0.1
+click-log==0.3.2
 dnspython==2.1.0
 Flask==2.0.1
 Flask-PyMongo==2.3.0
