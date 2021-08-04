@@ -17,25 +17,30 @@
 
   <header>
     <!-- Navbar -->
-    <nav>
-      <div class="nav-wrapper teal darken-4">
-        <a href="{{ url_for('get_places') }}" class="brand-logo center"><img src="../../static/images/logo.png"
-            class="logo" alt="logo"></a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="{{ url_for('get_places') }}" class="brand-logo center"><i class="material-icons logo">airplane_ticket</i></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
           <ul class="left hide-on-med-and-down">
             <li><a href="{{ url_for('get_places') }}">Home</a></li>
+          </ul>
           {% if session.user %}
+          <ul class="left hide-on-med-and-down">
             <li><a href="{{ url_for('add_place') }}">Add place</a></li>
             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('signout') }}">Sign Out</a></li>  
+            <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+          </ul>
           {% else %}
+          <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+          </ul>
           {% endif %}
-        </ul>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </div>
     <!-- Sidenav -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ url_for('get_places') }}">Home</a></li>
@@ -49,22 +54,21 @@
     </ul>
   </header>
 
+  <main class="container"> 
   <section>
     <!-- Flash messages -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
-    <div class="row flashes">
-      <h4 class="teal darken-3 center-align">{{ message }}</h4>
+    <div class="row flashes z-depth-4">
+      <h4 class="teal darken-2 white-text center-align">{{ message }}</h4>
     </div>
     {% endfor %}
     {% endif %}
     {% endwith %}
   </section>
-
-  <main class="container">
-  {% block content %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -74,4 +78,5 @@
   {% endblock %}
 
 </body>
+
 </html>
