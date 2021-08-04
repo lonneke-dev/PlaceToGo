@@ -9,8 +9,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_on</i>
-                <input id="place_name" name="place_name" minlength="3" data-length="20" type="text" class="validate"
-                    required>
+                <input id="place_name" name="place_name" minlength="3" data-length="20" 
+                    value="{{ place.place_name }}" type="text" class="validate" required>
                 <label for="place_name">Place Name</label>
             </div>
         </div>
@@ -18,7 +18,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_city</i>
-                <input id="city" name="city" minlength="3" data-length="20" type="text" class="validate" required>
+                <input id="city" name="city" minlength="3" data-length="20" 
+                    value="{{ place.city }}" type="text" class="validate" required>
                 <label for="city">City</label>
             </div>
         </div>
@@ -26,7 +27,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">flag</i>
-                <input id="country" name="country" minlength="3" data-length="20" type="text" class="validate" required>
+                <input id="country" name="country" minlength="3" data-length="20" 
+                    value="{{ place.country }}" type="text" class="validate" required>
                 <label for="country">Country</label>
             </div>
         </div>
@@ -36,7 +38,11 @@
                 <i class="material-icons prefix">public</i>
                 <select id="continent_name" name="continent_name" class="validate" required>
                     {% for continent in continents %}
-                    <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
+                        {% if continent.continent_name == place.continent_name %}
+                            <option value="{{ continent.continent_name }}" selected>{{ continent.continent_name }}</option>
+                        {% else %}
+                            <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label>Choose Continent</label>
@@ -47,13 +53,19 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">article</i>
                 <textarea id="description" name="description" minlength="5" data-length="200"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>
+                {{- place.description -}}
+                </textarea>
                 <label for="description">Share Your Experience!</label>
             </div>
         </div>
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
+                <!-- Cancel Button -->
+                <a href="{{ url_for('get_places') }}" class="btn-large red">
+                    Cancel <i class="material-icons right">close</i>
+                </a>
                 <button class="btn-large teal darken-4" type="submit">Edit
                     <i class="material-icons right">send</i>
                   </button>

@@ -113,7 +113,6 @@ def add_place():
 @app.route("/edit_place/<place_id>", methods=["GET", "POST"])
 def edit_place(place_id):
     place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
-
     continents = mongo.db.continents.find().sort("continent_name", 1)
     return render_template(
         "edit_place.html", place=place, continents=continents)
