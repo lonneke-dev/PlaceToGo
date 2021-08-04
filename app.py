@@ -112,6 +112,18 @@ def add_place():
 
 @app.route("/edit_place/<place_id>", methods=["GET", "POST"])
 def edit_place(place_id):
+    if request.method == "POST":
+        submit = {
+            "place_name": request.form.get("place_name"),
+            "city": request.form.get("city"),
+            "country": request.form.get("country"),
+            "continent_name": request.form.get("continent_name"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        mongo.db.places.update({"_id": ObjectId(place_id)}, submit)
+        flash("Place Succesfully Updated")
+
     place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
     continents = mongo.db.continents.find().sort("continent_name", 1)
     return render_template(
