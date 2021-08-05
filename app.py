@@ -34,6 +34,9 @@ def search():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    if session.get("user"):
+        return render_template("404.html")
+
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -57,6 +60,9 @@ def signup():
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
+    if session.get("user"):
+        return render_template("404.html")
+
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -82,6 +88,9 @@ def signin():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    if not session.get("user"):
+        return render_template("404.html")
+
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -93,6 +102,9 @@ def profile(username):
 
 @app.route("/signout")
 def signout():
+    if not session.get("user"):
+        return render_template("404.html")
+
     flash("You have been signed out")
     session.pop("user")
     return redirect(url_for("signin"))
@@ -100,6 +112,10 @@ def signout():
 
 @app.route("/add_place", methods=["GET", "POST"])
 def add_place():
+    # Only users can the add place template
+    if not session.get("user"):
+        return render_template("404.html")
+
     if request.method == "POST":
         place = {
             "place_name": request.form.get("place_name"),
@@ -119,6 +135,9 @@ def add_place():
 
 @app.route("/edit_place/<place_id>", methods=["GET", "POST"])
 def edit_place(place_id):
+    if not session.get("user"):
+        return render_template("404.html")
+
     if request.method == "POST":
         submit = {
             "place_name": request.form.get("place_name"),
@@ -139,6 +158,9 @@ def edit_place(place_id):
 
 @app.route("/delete_place/<place_id>")
 def delete_place(place_id):
+    if not session.get("user"):
+        return render_template("404.html")
+
     mongo.db.places.remove({"_id": ObjectId(place_id)})
     flash("Place Succesfully Deleted")
     return redirect(url_for("get_places"))
