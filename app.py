@@ -144,6 +144,11 @@ def delete_place(place_id):
     return redirect(url_for("get_places"))
 
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html'), 404
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
