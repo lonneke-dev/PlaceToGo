@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+/* --------------------------------------------- General Rules */
+
 body {
     background-color: #e0f2f1;
     font-family: Itim, sans-serif;
@@ -10,17 +12,13 @@ button {
     font-family: Itim, sans-serif;
 }
 
-.search {
-    background-color: #e0f2f1;
-}
-
-.searching {
-    margin-bottom: 10px;
-}
+/* --------------------------------------------- NavBar */
 
 nav i.logo{
     font-size: 3rem;
 }
+
+/* --------------------------------------------- Flash Messages */
 
 h4 {
     margin: 0;
@@ -34,6 +32,8 @@ h4 {
 .flashes h4 {
     line-height: 2;
 }
+
+/* --------------------------------------------- Place Cards */
 
 .place {
     height: 500px;

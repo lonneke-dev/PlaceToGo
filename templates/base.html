@@ -27,17 +27,17 @@
             <li><a href="{{ url_for('get_places') }}">Home</a></li>
           </ul>
           {% if session.user %}
-          <ul class="left hide-on-med-and-down">
-            <li><a href="{{ url_for('add_place') }}">Add place</a></li>
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-          </ul>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
-          </ul>
+            <ul class="left hide-on-med-and-down">
+              <li><a href="{{ url_for('add_place') }}">Add place</a></li>
+              <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+            </ul>
           {% else %}
-          <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('signin') }}">Sign In/Up</a></li>
-          </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{{ url_for('signin') }}">Sign In/Up</a></li>
+            </ul>
           {% endif %}
         </div>
       </nav>
@@ -46,11 +46,11 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ url_for('get_places') }}">Home</a></li>
       {% if session.user %}
-      <li><a href="{{ url_for('add_place') }}">Add place</a></li>
-      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-      <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+        <li><a href="{{ url_for('add_place') }}">Add place</a></li>
+        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+        <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
       {% else %}
-      <li><a href="{{ url_for('signin') }}">Sign In/Up</a></li>
+        <li><a href="{{ url_for('signin') }}">Sign In/Up</a></li>
       {% endif %}
     </ul>
   </header>
@@ -61,9 +61,9 @@
       {% with messages = get_flashed_messages() %}
       {% if messages %}
       {% for message in messages %}
-      <div class="row flashes z-depth-4">
-        <h4 class="teal darken-2 white-text center-align">{{ message }}</h4>
-      </div>
+        <div class="row flashes z-depth-4">
+          <h4 class="teal darken-2 white-text center-align">{{ message }}</h4>
+        </div>
       {% endfor %}
       {% endif %}
       {% endwith %}

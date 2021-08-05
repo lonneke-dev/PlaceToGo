@@ -1,77 +1,77 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="teal-text text-darken-4 center-align">Edit Place</h3>
+    <h3 class="teal-text text-darken-4 center-align">Edit Place</h3>
 
-<div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('edit_place', place_id=place._id) }}">
-        <!-- Place Name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">location_on</i>
-                <input id="place_name" name="place_name" minlength="3" data-length="20" 
-                    value="{{ place.place_name }}" type="text" class="validate" required>
-                <label for="place_name">Place Name</label>
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('edit_place', place_id=place._id) }}">
+            <!-- Place Name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">location_on</i>
+                    <input id="place_name" name="place_name" minlength="3" data-length="20" value="{{ place.place_name }}"
+                        type="text" class="validate" required>
+                    <label for="place_name">Place Name</label>
+                </div>
             </div>
-        </div>
-        <!-- City -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">location_city</i>
-                <input id="city" name="city" minlength="3" data-length="20" 
-                    value="{{ place.city }}" type="text" class="validate" required>
-                <label for="city">City</label>
+            <!-- City -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">location_city</i>
+                    <input id="city" name="city" minlength="3" data-length="20" value="{{ place.city }}" type="text"
+                        class="validate" required>
+                    <label for="city">City</label>
+                </div>
             </div>
-        </div>
-        <!-- Country -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">flag</i>
-                <input id="country" name="country" minlength="3" data-length="20" 
-                    value="{{ place.country }}" type="text" class="validate" required>
-                <label for="country">Country</label>
+            <!-- Country -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">flag</i>
+                    <input id="country" name="country" minlength="3" data-length="20" value="{{ place.country }}"
+                        type="text" class="validate" required>
+                    <label for="country">Country</label>
+                </div>
             </div>
-        </div>
-        <!-- Continent Dropdown -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">public</i>
-                <select id="continent_name" name="continent_name" class="validate" required>
-                    {% for continent in continents %}
+            <!-- Continent Dropdown -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">public</i>
+                    <select id="continent_name" name="continent_name" class="validate" required>
+                        {% for continent in continents %}
                         {% if continent.continent_name == place.continent_name %}
                             <option value="{{ continent.continent_name }}" selected>{{ continent.continent_name }}</option>
                         {% else %}
                             <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
                         {% endif %}
-                    {% endfor %}
-                </select>
-                <label>Choose Continent</label>
+                        {% endfor %}
+                    </select>
+                    <label>Choose Continent</label>
+                </div>
             </div>
-        </div>
-        <!-- Description Textarea -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">article</i>
-                <textarea id="description" name="description" minlength="5" data-length="200"
-                    class="materialize-textarea validate" required>
-                {{- place.description -}}
-                </textarea>
-                <label for="description">Share Your Experience!</label>
+            <!-- Description Textarea -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">article</i>
+                    <textarea id="description" name="description" minlength="5" data-length="200"
+                        class="materialize-textarea validate" required>
+                    {{- place.description -}}
+                    </textarea>
+                    <label for="description">Share Your Experience!</label>
+                </div>
             </div>
-        </div>
-        <!-- Submit Button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <!-- Cancel Button -->
-                <a href="{{ url_for('get_places') }}" class="btn-large red">
-                    Cancel <i class="material-icons right">close</i>
-                </a>
-                <button class="btn-large teal darken-4" type="submit">Edit
-                    <i class="material-icons right">send</i>
-                  </button>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <!-- Cancel Button -->
+                    <a href="{{ url_for('get_places') }}" class="btn-large red">
+                        Cancel <i class="material-icons right">close</i>
+                    </a>
+                    <button class="btn-large teal darken-4" type="submit">Edit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
 {% endblock %}
