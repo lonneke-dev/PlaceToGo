@@ -19,9 +19,9 @@
     <!-- Navbar -->
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper teal lighten-2">
+        <div class="nav-wrapper teal">
           <a href="{{ url_for('get_places') }}" class="brand-logo center"><i
-              class="material-icons logo">airplane_ticket</i></a>
+            class="material-icons logo hide-on-med-and-down">airplane_ticket</i>Place To Go</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
           <ul class="left hide-on-med-and-down">
             <li><a href="{{ url_for('get_places') }}">Home</a></li>
@@ -71,6 +71,33 @@
     {% block content %}
     {% endblock %}
   </main>
+
+  
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Place To Go</h5>
+          <p class="grey-text text-lighten-4">The platform to create, share and search places to go to all over the world!</p>
+          <a href="{{ url_for('signup') }}" class="btn-large teal darken-4">Sign Up Now!</a>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Social Media Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/lonnekevanzomeren/" target="_blank">Instagram</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/lonneke.vanzomeren/" target="_blank">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.polarsteps.com/travelnerd17" target="_blank">PolarSteps</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center-align">
+      © 2021 Place To Go
+      </div>
+    </div>
+  </footer>
+      
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
