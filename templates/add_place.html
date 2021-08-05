@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
-                    <input id="place_name" name="place_name" minlength="3" data-length="20" type="text" class="validate"
-                        required>
+                    <input id="place_name" name="place_name" data-length="50"
+                        pattern="^[^\s][A-Za-z0-9\s]{3,50}$" type="text" class="validate" required>
                     <label for="place_name">Place Name</label>
                 </div>
             </div>
@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_city</i>
-                    <input id="city" name="city" minlength="3" data-length="20" type="text" class="validate" required>
+                    <input id="city" name="city" data-length="30" 
+                        pattern="^[^\s][A-Za-z\s]{3,30}$" type="text" class="validate" required>
                     <label for="city">City</label>
                 </div>
             </div>
@@ -26,7 +27,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">flag</i>
-                    <input id="country" name="country" minlength="3" data-length="20" type="text" class="validate" required>
+                    <input id="country" name="country" data-length="50" 
+                        pattern="^[^\s][A-Za-z\s]{3,50}$" type="text" class="validate" required>
                     <label for="country">Country</label>
                 </div>
             </div>
