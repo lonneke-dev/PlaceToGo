@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
-    $('input, textarea').characterCounter();
+    $('input#country, textarea').characterCounter();
     $('select').formSelect();
     $('.modal').modal();
   });

@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 body {
     background-color: #e0f2f1;
+    font-family: Itim, sans-serif;
+    font-size: large;
+}
+
+button {
+    font-family: Itim, sans-serif;
+}
+
+.search {
+    background-color: #e0f2f1;
+}
+
+.searching {
+    margin-bottom: 10px;
 }
 
 nav i.logo{
@@ -20,5 +36,9 @@ h4 {
 }
 
 .place {
-    background-color: brown;
+    height: 500px;
+}
+
+.card {
+    padding: 10px;
 }
