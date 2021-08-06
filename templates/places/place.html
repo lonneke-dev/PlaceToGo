@@ -11,10 +11,10 @@
                 alt="place_image" />
         </div>
         <div class="col s12 l4 center-align">
-            <h6>City: {{place.city}}</h6>
-            <h6>Country: {{place.country}}</h6>
-            <h6>Continent: {{place.continent_name}}</h6>
-            <h6>Created by: {{place.created_by}}</h6>
+            <h5>City: {{place.city}}</h5>
+            <h5>Country: {{place.country}}</h5>
+            <h5>Continent: {{place.continent_name}}</h5>
+            <h5>Created by: {{place.created_by}}</h5>
         {% if session.user|lower == place.created_by|lower %}
             <a href="{{ url_for('edit_place', place_id=place._id) }}" class="btn-floating btn-small teal"><i
                     class="material-icons">edit</i></a>
@@ -31,14 +31,12 @@
                 </div>
             </div>
         {% endif %}
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="center-align">
-        <h5>{{ place.description }}</h5>
+    <div class="row description">
+        <div class="col s12">
+            <p>{{ place.description }}</p>
+        </div>
     </div>
-
-</div>
-
 
 {% endblock %}

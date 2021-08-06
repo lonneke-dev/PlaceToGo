@@ -46,14 +46,19 @@ h4 {
     height: 250px;
 }
 
+/* --------------------------------------------- Profile */
 .profile {
     margin: 0;
 }
 
+/* --------------------------------------------- Place.html */
 .image {
     display: block;
     margin: 0;
     width: 100%;
-    max-height: 60%;
+    max-height: 100%;
 }
 
+.description {
+    font-size: 21px;
+}
