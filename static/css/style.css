@@ -6,7 +6,14 @@ body {
     background-color: #e0f2f1;
     font-family: Itim, sans-serif;
     font-size: large;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+main {
+    flex: 1 0 auto;
+  }
 
 button {
     font-family: Itim, sans-serif;
