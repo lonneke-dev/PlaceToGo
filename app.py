@@ -47,7 +47,7 @@ def search():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if session.get("user"):
-        return render_template("404.html")
+        return render_template("403.html")
 
     if request.method == "POST":
         # Check if username already exists in db
@@ -78,7 +78,7 @@ def signup():
 def signin():
     # Only users that haven't signed in or up can access
     if session.get("user"):
-        return render_template("404.html")
+        return render_template("403.html")
 
     if request.method == "POST":
         # Check if user exists in db
@@ -137,7 +137,7 @@ def profile(username):
 def signout():
     # Remove user form session cookies
     if not session.get("user"):
-        return render_template("404.html")
+        return render_template("403.html")
 
     flash("You have been signed out")
     session.pop("user")

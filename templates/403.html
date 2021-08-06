@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section>
+        <div class="row center-align">
+                <h3>403 - Forbidden</h3>
+                <h5>The page you were looking for seems to be forbidden</h5> <br>
+                <a href="{{ url_for('get_places') }}" class="btn">Return To HomePage</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
