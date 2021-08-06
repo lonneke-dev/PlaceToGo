@@ -5,23 +5,40 @@
     <h3 class="center-align">{{place.place_name}}</h3> <br>
 
     <div class="row">
-    <div class="col l5">
-        <h6>City: {{place.city}}</h6>
-        <h6>Country: {{place.country}}</h6>
-        <h6>Continent: {{place.continent_name}}</h6>
-        <h6>Created by: {{place.created_by}}</h6>
+        <div class="col l8 ">
+            <img class="image" src="{{ place.place_url }}"
+                onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;"
+                alt="place_image" />
+        </div>
+        <div class="col s12 l4 center-align">
+            <h6>City: {{place.city}}</h6>
+            <h6>Country: {{place.country}}</h6>
+            <h6>Continent: {{place.continent_name}}</h6>
+            <h6>Created by: {{place.created_by}}</h6>
+        {% if session.user|lower == place.created_by|lower %}
+            <a href="{{ url_for('edit_place', place_id=place._id) }}" class="btn-floating btn-small teal"><i
+                    class="material-icons">edit</i></a>
+            <a href="#modal1" class="btn-floating btn-small red modal-trigger"><i class="material-icons">close</i></a>
+
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Are You Sure?</h4>
+                    <p>If you'd like to delete your post please press "Yes".</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('delete_place', place_id=place._id) }}" class="modal-close btn-flat">Yes</a>
+                    <a href="#!" class="modal-close btn-flat">No</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
-    <div class="col l7 ">
-        <img class="image" src="{{ place.place_url }}" onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;" alt="place_image" />
-    </div> 
+</div>
+<div class="row">
+    <div class="center-align">
+        <h5>{{ place.description }}</h5>
     </div>
-    <div class="row"> 
-        <div class="center-align">
-            <h5>{{ place.description }}</h5>
-        </div> 
-        
-    </div>     
+
+</div>
 
 
 {% endblock %}
-    

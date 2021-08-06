@@ -18,7 +18,9 @@
             <div class="col s12 l6 xl4">
                 <div class="place card center-align">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="{{ place.place_url }}" onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;" alt="place_image" />
+                        <a href="{{ url_for('place', place_id=place._id) }}">
+                        <img class="activator" src="{{ place.place_url }}" onerror="this.src='static/images/default.jpg'">
+                        </a>
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">{{ place.place_name }}<i class="material-icons right">more_vert</i></span>
