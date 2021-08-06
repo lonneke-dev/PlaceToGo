@@ -27,6 +27,14 @@ def get_places():
     return render_template("places.html", places=places)
 
 
+@app.route("/place/<place_id>")
+def place(place_id):
+    # Find place on the basis of id
+    place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
+
+    return render_template("place.html", place=place)
+
+
 # ------------------------------------------------------------ Search Index #
 @app.route("/search", methods=["GET", "POST"])
 def search():

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Title -->
+    <h3 class="center-align">{{place.place_name}}</h3> <br>
+
+    <div class="row">
+    <div class="col l5">
+        <h6>City: {{place.city}}</h6>
+        <h6>Country: {{place.country}}</h6>
+        <h6>Continent: {{place.continent_name}}</h6>
+        <h6>Created by: {{place.created_by}}</h6>
+    </div>
+    <div class="col l7 ">
+        <img class="image" src="{{ place.place_url }}" onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;" alt="place_image" />
+    </div> 
+    </div>
+    <div class="row"> 
+        <div class="center-align">
+            <h5>{{ place.description }}</h5>
+        </div> 
+        
+    </div>     
+
+
+{% endblock %}
+    

@@ -45,3 +45,11 @@ h4 {
 .card-image {
     height: 250px;
 }
+
+.image {
+    display: block;
+    margin: 0;
+    width: 100%;
+    max-height: 60%;
+}
+
