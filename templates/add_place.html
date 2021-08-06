@@ -10,9 +10,10 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">location_on</i>
-                        <input id="place_name" name="place_name" data-length="50"
-                            pattern="^[^\s][A-Za-z0-9\s]{3,50}$" type="text" class="validate" required>
+                        <input id="place_name" name="place_name" data-length="30"
+                            pattern="^[^\s][A-Za-z0-9\s]{3,30}$" type="text" class="validate" required>
                         <label for="place_name">Place Name</label>
+                        <span class="helper-text" data-error="Use only letters and numbers, between 3-30 characters" data-success="✓">Only letters and numbers</span>
                     </div>
                 </div>
                 <!-- City -->
@@ -22,15 +23,17 @@
                         <input id="city" name="city" data-length="30" 
                             pattern="^[^\s][A-Za-z\s]{3,30}$" type="text" class="validate" required>
                         <label for="city">City</label>
+                        <span class="helper-text" data-error="Use only letters, between 3-30 characters" data-success="✓">Only letters</span>
                     </div>
                 </div>
                 <!-- Country -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">flag</i>
-                        <input id="country" name="country" data-length="50" 
-                            pattern="^[^\s][A-Za-z\s]{3,50}$" type="text" class="validate" required>
+                        <input id="country" name="country" data-length="30" 
+                            pattern="^[^\s][A-Za-z\s]{3,30}$" type="text" class="validate" required>
                         <label for="country">Country</label>
+                        <span class="helper-text" data-error="Use only letters, between 3-30 characters" data-success="✓">Only letters</span>
                     </div>
                 </div>
                 <!-- Continent Dropdown -->
@@ -49,8 +52,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">photo_camera</i>
-                        <input id="place_url" name="place_url" data-length="100" type="text" class="validate">
+                        <input id="place_url" name="place_url" data-length="200" type="text" pattern="https?://.+" class="validate">
                         <label for="place_url">Image url</label>
+                        <span class="helper-text" data-error="enter valid URL" data-success="right"></span>
                     </div>
                 </div>
                 <!-- Description Textarea -->

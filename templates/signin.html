@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix teal-text text-darken-4">face</i>
-                        <input id="username" name="username" type="text"
-                            pattern="^[a-zA-Z0-9]{3,15}$" class="validate" required>
+                        <input id="username" name="username" type="text" data-length="20"
+                            pattern="^[a-zA-Z0-9]{3,20}$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix teal-text text-darken-4">vpn_key</i>
-                        <input id="password" name="password" type="password"
-                            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <input id="password" name="password" type="password" data-length="20"
+                            pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
                         <label for="password">Password</label>
                     </div>
                 </div>

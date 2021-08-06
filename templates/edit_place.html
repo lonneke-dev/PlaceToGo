@@ -9,27 +9,30 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
-                    <input id="place_name" name="place_name" data-length="50" value="{{ place.place_name }}"
-                        pattern="^[^\s][A-Za-z0-9\s]{3,50}$" type="text" class="validate" required>
+                    <input id="place_name" name="place_name" data-length="30" value="{{ place.place_name }}"
+                        pattern="^[^\s][A-Za-z0-9\s]{3,30}$" type="text" class="validate" required>
                     <label for="place_name">Place Name</label>
+                    <span class="helper-text" data-error="Use only letters and numbers, between 3-30 characters" data-success="✓">Only letters and numbers</span>
                 </div>
             </div>
             <!-- City -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_city</i>
-                    <input id="city" name="city" data-length="20" value="{{ place.city }}" 
-                        pattern="^[^\s][A-Za-z\s]{3,20}$" type="text" class="validate" required>
+                    <input id="city" name="city" data-length="30" value="{{ place.city }}" 
+                        pattern="^[^\s][A-Za-z\s]{3,30}$" type="text" class="validate" required>
                     <label for="city">City</label>
+                    <span class="helper-text" data-error="Use only letters, between 3-30 characters" data-success="✓">Only letters</span>
                 </div>
             </div>
             <!-- Country -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">flag</i>
-                    <input id="country" name="country" minlength="3" data-length="50" value="{{ place.country }}"
-                        pattern="^[^\s][A-Za-z\s]{3,50}$" type="text" class="validate" required>
+                    <input id="country" name="country" minlength="3" data-length="30" value="{{ place.country }}"
+                        pattern="^[^\s][A-Za-z\s]{3,30}$" type="text" class="validate" required>
                     <label for="country">Country</label>
+                    <span class="helper-text" data-error="Use only letters, between 3-30 characters" data-success="✓">Only letters</span>
                 </div>
             </div>
             <!-- Continent Dropdown -->
@@ -52,8 +55,10 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">photo_camera</i>
-                    <input id="place_url" name="place_url" data-length="100" value="{{ place.place_url }}" type="text" class="validate">
+                    <input id="place_url" name="place_url" data-length="200" value="{{ place.place_url }}" 
+                        type="text" pattern="https?://.+" class="validate">
                     <label for="place_url">Image url</label>
+                    <span class="helper-text" data-error="Please enter valid URL" data-success="right"></span>
                 </div>
             </div>
             <!-- Description Textarea -->

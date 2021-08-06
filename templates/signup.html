@@ -13,6 +13,7 @@
                         <input id="username" name="username" type="text" data-length="20"
                         pattern="^[A-Za-z0-9_]{5,20}$" class="validate" required>
                         <label for="username">Username</label>
+                        <span class="helper-text" data-error="Use only letters and numbers, must be between 5-20 characters" data-success="✓">Only letters and numbers, between 5-20 characters</span>
                     </div>
                 </div>
                 <!-- password -->
@@ -22,6 +23,8 @@
                         <input id="password" name="password" type="password" data-length="20"
                         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}$" class="validate" required>
                         <label for="password">Password</label>
+                        <span class="helper-text" data-error="Must contain at least one number, one uppercase letter, one lowercase letter and must be between 5-20 characters" data-success="✓">At least one number, one uppercase letter, one lowercase letter, between 5-20 characters</span>
+                </div>
                     </div>
                 </div>
                 <!-- Sign Up -->
