@@ -111,7 +111,15 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        # Admin has access to all places
+        if session["user"] == "admin":
+            user_places = list(mongo.db.places.find())
+        else:
+            # User sees own places
+            user_places = list(
+                mongo.db.places.find({"created_by": session["user"]}))
+        return render_template(
+            "profile.html", username=username, user_places=user_places)
 
     return redirect(url_for("signin"))
 
