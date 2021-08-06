@@ -43,7 +43,8 @@
                         </a>
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{ place.place_name }}<i class="material-icons right">keyboard_arrow_up</i></span>
+                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons center-align">keyboard_arrow_up</i> <br>
+                            {{ place.place_name }}</span>
                     </div>
                     <div class="card-reveal">
                     <div class="row">
@@ -65,22 +66,22 @@
                                         class="material-icons">edit</i></a>
                                 <a href="#modal1" class="btn-floating btn-small red modal-trigger"><i
                                         class="material-icons">close</i></a>
-
-                                <div id="modal1" class="modal">
-                                    <div class="modal-content">
-                                        <h4>Are You Sure?</h4>
-                                        <p>If you'd like to delete your post please press "Yes".</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="{{ url_for('delete_place', place_id=place._id) }}"
-                                            class="modal-close btn-flat">Yes</a>
-                                        <a href="#!" class="modal-close btn-flat">No</a>
-                                    </div>
-                                </div>
                             {% endif %}
                         </div>
                     </ul>
                 </div>
+                </div>
+            </div>
+            <!-- Modal Delete Place-->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Are You Sure?</h4>
+                    <p>If you'd like to delete your post please press "Yes".</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('delete_place', place_id=place._id) }}"
+                        class="modal-close btn-flat">Yes</a>
+                    <a href="#!" class="modal-close btn-flat">No</a>
                 </div>
             </div>
         {% endfor %}
