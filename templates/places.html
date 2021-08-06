@@ -35,12 +35,20 @@
     <!-- Places -->
     <div class="row">
         {% for place in places %}
-            <div class="place col s12 l6 xl4">
-                <div class="card center-align">
+            <div class="col s12 l6 xl4">
+                <div class="place card center-align">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ url_for('static', filename='images/default.jpg')}}" alt="default">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ place.place_name }}<i class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                    <div class="row">
+                        <span class="card-title"><i class="material-icons right">close</i></span>
+                    </div>
                     <ul>
-                        <li>
-                            <h5>{{ place.place_name }}</h5>
-                        </li>
+                        <li><h5>{{ place.place_name }}</h5></li>
                         <li>{{ place.city }}</li>
                         <li>{{ place.country }}</li>
                         <li>{{ place.continent_name }}</li>
@@ -72,9 +80,10 @@
                         </div>
                     </ul>
                 </div>
+                </div>
             </div>
         {% endfor %}
-    </div>
+    </div>    
 
 <!-- Place Not Found Through Search Index -->
 {% if places|length == 0 %}
