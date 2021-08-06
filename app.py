@@ -24,15 +24,16 @@ mongo = PyMongo(app)
 @app.route("/get_places")
 def get_places():
     places = list(mongo.db.places.find())
-    return render_template("places.html", places=places)
+    return render_template("places/places.html", places=places)
 
 
+# ------------------------------------------------------------ Place #
 @app.route("/place/<place_id>")
 def place(place_id):
     # Find place on the basis of id
     place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
 
-    return render_template("place.html", place=place)
+    return render_template("places/place.html", place=place)
 
 
 # ------------------------------------------------------------ Search Index #
@@ -40,14 +41,14 @@ def place(place_id):
 def search():
     query = request.form.get("query")
     places = list(mongo.db.places.find({"$text": {"$search": query}}))
-    return render_template("places.html", places=places)
+    return render_template("places/places.html", places=places)
 
 
 # ------------------------------------------------------------ Sign Up #
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if session.get("user"):
-        return render_template("403.html")
+        return render_template("error_handlers/403.html")
 
     if request.method == "POST":
         # Check if username already exists in db
@@ -70,7 +71,7 @@ def signup():
         flash("You've Succesfully Signed Up!")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("signup.html")
+    return render_template("users/signup.html")
 
 
 # ------------------------------------------------------------ Sign In #
@@ -78,7 +79,7 @@ def signup():
 def signin():
     # Only users that haven't signed in or up can access
     if session.get("user"):
-        return render_template("403.html")
+        return render_template("error_handlers/403.html")
 
     if request.method == "POST":
         # Check if user exists in db
@@ -104,7 +105,7 @@ def signin():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("signin"))
 
-    return render_template("signin.html")
+    return render_template("users/signin.html")
 
 
 # ------------------------------------------------------------ Profile #
@@ -112,7 +113,7 @@ def signin():
 def profile(username):
     # Only users can access
     if not session.get("user"):
-        return render_template("404.html")
+        return render_template("error_handlers/404.html")
 
     # Grab the session user's username from db
     username = mongo.db.users.find_one(
@@ -127,7 +128,7 @@ def profile(username):
             user_places = list(
                 mongo.db.places.find({"created_by": session["user"]}))
         return render_template(
-            "profile.html", username=username, user_places=user_places)
+            "users/profile.html", username=username, user_places=user_places)
 
     return redirect(url_for("signin"))
 
@@ -137,7 +138,7 @@ def profile(username):
 def signout():
     # Remove user form session cookies
     if not session.get("user"):
-        return render_template("403.html")
+        return render_template("error_handlers/403.html")
 
     flash("You have been signed out")
     session.pop("user")
@@ -149,7 +150,7 @@ def signout():
 def add_place():
     # Only users can add places
     if not session.get("user"):
-        return render_template("404.html")
+        return render_template("error_handlers/404.html")
 
     # Adding place to db
     if request.method == "POST":
@@ -164,11 +165,11 @@ def add_place():
         }
         mongo.db.places.insert_one(place)
         flash("Place Succesfully Added")
-        return redirect(url_for("get_places"))
+        return redirect(url_for("profile", username=session['user']))
 
     # Find continents from db
     continents = mongo.db.continents.find().sort("continent_name", 1)
-    return render_template("add_place.html", continents=continents)
+    return render_template("places/add_place.html", continents=continents)
 
 
 # ------------------------------------------------------------ Edit Place #
@@ -176,7 +177,7 @@ def add_place():
 def edit_place(place_id):
     # Only users can edit places
     if not session.get("user"):
-        return render_template("404.html")
+        return render_template("error_handlers/404.html")
 
     # Edit place in db
     if request.method == "POST":
@@ -195,14 +196,14 @@ def edit_place(place_id):
     place = mongo.db.places.find_one({"_id": ObjectId(place_id)})
     continents = mongo.db.continents.find().sort("continent_name", 1)
     return render_template(
-        "edit_place.html", place=place, continents=continents)
+        "places/edit_place.html", place=place, continents=continents)
 
 
 # ------------------------------------------------------------ Delete Place #
 @app.route("/delete_place/<place_id>")
 def delete_place(place_id):
     if not session.get("user"):
-        return render_template("404.html")
+        return render_template("error_handlers/404.html")
 
     mongo.db.places.remove({"_id": ObjectId(place_id)})
     flash("Place Succesfully Deleted")
@@ -212,7 +213,7 @@ def delete_place(place_id):
 # ------------------------------------------------------------ Error Handler #
 @app.errorhandler(404)
 def not_found(e):
-    return render_template('404.html'), 404
+    return render_template('error_handlers/404.html'), 404
 
 
 # ------------------------------------------------------------ Run The App #
