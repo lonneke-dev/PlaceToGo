@@ -151,6 +151,7 @@ def add_place():
             "country": request.form.get("country"),
             "continent_name": request.form.get("continent_name"),
             "description": request.form.get("description"),
+            "place_url": request.form.get("place_url"),
             "created_by": session["user"]
         }
         mongo.db.places.insert_one(place)
@@ -177,6 +178,7 @@ def edit_place(place_id):
             "country": request.form.get("country"),
             "continent_name": request.form.get("continent_name"),
             "description": request.form.get("description"),
+            "place_url": request.form.get("place_url"),
             "created_by": session["user"]
         }
         mongo.db.places.update({"_id": ObjectId(place_id)}, submit)
