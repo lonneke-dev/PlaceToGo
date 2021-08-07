@@ -17,12 +17,10 @@
                 <button type="submit" class="light-teal darken-1 btn">
                     <i class="material-icons left">search</i>Search
                 </button>
-                <a href="{{ url_for('get_places') }}" class="red btn"><i
-                        class="material-icons left">restart_alt</i>Reset</a>
+                <a href="{{ url_for('get_places') }}" class="red btn"><i class="material-icons left">restart_alt</i>Reset</a>
             </div>
         </form>
     </div>
-
     <!-- Places -->
     <div class="row">
         {% for place in places %}
@@ -74,7 +72,7 @@
         {% endfor %}
     </div>    
 
-        <!-- Place Not Found Through Search Index -->
+    <!-- Place Not Found Through Search Index -->
     {% if places|length == 0 %}
         <h3 class="red-text text-darken-4 center-align">No Places Found</h3>
     {% endif %}

@@ -41,9 +41,9 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">public</i>
                         <select id="continent_name" name="continent_name" class="validate" required>
-                            {% for continent in continents %}
-                                <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
-                            {% endfor %}
+                        {% for continent in continents %}
+                            <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
+                        {% endfor %}
                         </select>
                         <label>Choose Continent</label>
                     </div>

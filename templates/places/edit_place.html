@@ -40,13 +40,13 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">public</i>
                     <select id="continent_name" name="continent_name" class="validate" required>
-                        {% for continent in continents %}
-                        {% if continent.continent_name == place.continent_name %}
-                            <option value="{{ continent.continent_name }}" selected>{{ continent.continent_name }}</option>
-                        {% else %}
-                            <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
-                        {% endif %}
-                        {% endfor %}
+                    {% for continent in continents %}
+                    {% if continent.continent_name == place.continent_name %}
+                        <option value="{{ continent.continent_name }}" selected>{{ continent.continent_name }}</option>
+                    {% else %}
+                        <option value="{{ continent.continent_name }}">{{ continent.continent_name }}</option>
+                    {% endif %}
+                    {% endfor %}
                     </select>
                     <label>Choose Continent</label>
                 </div>
@@ -67,7 +67,7 @@
                     <i class="material-icons prefix">article</i>
                     <textarea id="description" name="description" minlength="5" data-length="200"
                         class="materialize-textarea validate" required>
-                    {{- place.description -}}
+                        {{- place.description -}}
                     </textarea>
                     <label for="description">Share Your Experience!</label>
                 </div>

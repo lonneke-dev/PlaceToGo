@@ -36,14 +36,21 @@
 
 ## 2. Responsiveness 
 - Responsiveness of the site is tested with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).
-- The site is tested on the following devices and browsers: 
-    - Desktop: 1024px, 1366px, 1440px, 1600px and 1680px. 
+- The site is tested on the following devices: 
+    - Desktop: 1024px, 1600px and 1920px. 
     - Mobile & Tablet: Galaxy S5, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 plus, iPhone x, iPad and  iPad Pro.
     - Browsers: Mozilla Firefox, Google Chrome, Microsoft Edge, Opera, Safari, Internet Explorer.
 
-![Responsiveness testing](static/images/responsiveness.png)
+![Responsiveness testing](static/images/responsive.png)
 
 ---
+
+<span id="browser-compatibility"></span>
+
+## 3. Browser compatibility
+![Browser compatibility](static/images/browser.png)
+
+--- 
 
 <span id="user-stories"></span>
 

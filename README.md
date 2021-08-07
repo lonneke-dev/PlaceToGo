@@ -8,7 +8,7 @@ PlaceToGo is a site that allows users to find places to go to. Users can also ma
 
 This project is my third assignment of the Full stack development course I am following at CodeInstitute to show my skills with HTML, CSS, JavaScript, Python, Flask and MongoDB.
 
-[View the live project here.](https://lonneke-dev.github.io/PlaceToGo/)
+[View the live project here.](https://place-to-go-project.herokuapp.com/)
 
 ---
 
@@ -125,6 +125,7 @@ The project has three collections in the database. The database structure in Mon
 
 <span id="ux-mockup"></span>
 
+### 1.5 Mockup designs
 See all Wireframes [here](wireframes/ms3.pdf)
 
 The wireframes were made with [Balsamiq](https://balsamiq.com/)
@@ -168,24 +169,6 @@ The wireframes were made with [Balsamiq](https://balsamiq.com/)
 <span id="technologies"></span>
 
 <h1>3. Technologies used</h1>
-
-#### Languages used
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)
-    - HTML5 provides the structure and the content for my project. 
-- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-    - CSS3 provides the style of the HTML5 elements.
-- [jQuery](https://jquery.com/)
-    - jQuery used as the JavaScript functionality.
-- [Python](https://www.python.org/)
-    - Python provides the backend of the project.
-
--   Responsive on all device sizes
-
--   Interactive elements
-
-### Future Features
-
-## Technologies Used
 
 ### Languages Used
 
