@@ -9,7 +9,7 @@
 - <a href="#browser-compatibility">3. Browser compability</a>
 - <a href="#user-stories">4. Testing user stories </a>
 - <a href="#defensive-design">5. Defensive design</a>
-- <a href="#bugs">5. Bugs</a>
+- <a href="#bugs">6. Bugs</a>
 
 ---
 
@@ -139,7 +139,13 @@ See below the input fields for front end validation
 
 <span id="bugs"></span>
 
-## 6. Bugs | Solved
+## 6. Bugs 
+
+1. There's one bug on 3 pages because of the url for on the default image. 
+    - This seems to be the only thing that works though.
+    - The line: onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;"
+
+**Fixed**
 1. A bug was found when I moved my modal outside of the if statement in the places and profile template which caused the deletion of several earlier posted places in the database.
     - By using an index.loop searched on slack to connect the modal I managed to fix the bug.
 2. A bug was found when I tried to connect my place template to the image of the place cards.
@@ -148,6 +154,7 @@ See below the input fields for front end validation
     - After searching a bit through [Stack Overflow](https://stackoverflow.com/) I found a bit of css that makes sure the image doesn't overlap.
 4. A bug was found when I changed the places to cards, the Modal would show up inside the card. 
     - By moving the code of the modal outside the card but still inside the if session user statement the bug was fixed.
+
 
 ---
 
