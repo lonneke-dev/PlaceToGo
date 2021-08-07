@@ -39,7 +39,6 @@
 - The site is tested on the following devices: 
     - Desktop: 1024px, 1600px and 1920px. 
     - Mobile & Tablet: Galaxy S5, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 plus, iPhone x, iPad and  iPad Pro.
-    - Browsers: Mozilla Firefox, Google Chrome, Microsoft Edge, Opera, Safari, Internet Explorer.
 
 ![Responsiveness testing](static/images/responsive.png)
 

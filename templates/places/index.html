@@ -28,8 +28,7 @@
                 <div class="place card center-align">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="{{ url_for('place', place_id=place._id) }}">
-                        <img src="{{ place.place_url }}" onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;" alt="place">
-                        </a>
+                        <img src="{{ place.place_url }}" onerror="this.onerror=null;this.src= &#34; {{ url_for('static', filename='images/default.jpg') }} &#34; ;" alt="place">  
                     </div>
                     <div class="card-content">
                         <span class="card-title activator"><i class="material-icons center-align">keyboard_arrow_up</i> <br>
