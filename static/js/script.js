@@ -7,4 +7,6 @@ $(document).ready(function(){
     $('select').formSelect();
     // Modal functionality
     $('.modal').modal();
+    // Hero-image parallax
+    $('.parallax').parallax();
   });

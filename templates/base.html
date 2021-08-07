@@ -20,11 +20,12 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper teal">
-          <a href="{{ url_for('get_places') }}" class="brand-logo center"><i
+          <a href="{{ url_for('home') }}" class="brand-logo center"><i
             class="material-icons logo hide-on-med-and-down">airplane_ticket</i>Place To Go</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">double_arrow</i></a>
           <ul class="left hide-on-med-and-down">
-            <li><a href="{{ url_for('get_places') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('get_places') }}">Places</a></li>
           </ul>
           {% if session.user %}
             <ul class="left hide-on-med-and-down">
@@ -44,7 +45,8 @@
     </div>
     <!-- Sidenav -->
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="{{ url_for('get_places') }}">Home</a></li>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('get_places') }}">Places</a></li>
       {% if session.user %}
         <li><a href="{{ url_for('add_place') }}">Add place</a></li>
         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
