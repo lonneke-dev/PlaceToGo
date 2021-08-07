@@ -2,7 +2,7 @@
 
 <span id="placetogo"></span>
 
-<h2 align="center"><img src="http://www.kaaman.nl/underconstruction.jpg"></h2>
+<h2 align="center"><img src="static/images/ms3.png"></h2>
 
 PlaceToGo is a site that allows users to find places to go to. Users can also make their own account to be able to create, share, edit and delete their own posts about places they've been and recommend.
 
@@ -94,7 +94,8 @@ In this project the icons used are provided by [materialize](https://materialize
 
 - #### Images
 The images I used for this project came from several places: 
-- default image for place: [Pexels](https://www.pexels.com/) uploaded by: [Element5 digital](https://www.pexels.com/nl-nl/@element5). 
+- default image for place: [Pexels](https://www.pexels.com/) uploaded by: [Leah Kelley](https://www.pexels.com/nl-nl/@leah-kelley-50725). 
+- The hero image: [Pexels](https://www.pexels.com/) uploaded by: [Element5 digital](https://www.pexels.com/nl-nl/@element5).
 - Anne frank house: [amsterdam](http://www.amsterdam.nu/wp-content/uploads/2014/10/anne-frank.jpg)
 - Moomin cafe: [tripadvisor](https://media-cdn.tripadvisor.com/media/photo-s/13/74/f2/0a/photo0jpg.jpg)
 - Amsterdam Lookout: [architectenweb](https://architectenweb.nl/media/illustrations/2017/03/14db40d3-9444-4b6c-ad26-aafc7e7d763b_400.jpg)
@@ -175,7 +176,7 @@ The wireframes were made with [Balsamiq](https://balsamiq.com/)
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JavaScript](https://nl.wikipedia.org/wiki/JavaScript)
--   [Python](https://en.wikipedia.org/wiki/Python_(programming_language) 
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 
 
 #### Frameworks, libraries & Other
 - [Gitpod](https://www.gitpod.io/) 

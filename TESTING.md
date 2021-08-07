@@ -18,10 +18,11 @@
 ## 1. Code validators
  - **[HTML Validator](https://validator.w3.org/):** No errors to show.
     - With testing the HTML code, I had some syntax issues on all pages I build with jinja templating.
-    - I tested the HTML code by running my server locally and used view page source. This code I passed through the validator.
+![HTML Validator](static/images/markup.png)
+
 
 - **[CSS Validator](https://jigsaw.w3.org/css-validator/):** No errors found.
-![CSS Validator](static/images/css-validator.png)
+![CSS Validator](static/images/css.png)
 
 - **[JS Hint](https://jshint.com/):** No errors found, one undefined variable 
     - 1 undefined variable: $
@@ -143,6 +144,10 @@ See below the input fields for front end validation
     - By using an index.loop searched on slack to connect the modal I managed to fix the bug.
 2. A bug was found when I tried to connect my place template to the image of the place cards.
     - After an actual hour of staring at my code from all angles I found that I forgot to add a "." in my url_for...
+3. A bug was found when I opened images on the place and index template the overlapped my whole page.
+    - After searching a bit through [Stack Overflow](https://stackoverflow.com/) I found a bit of css that makes sure the image doesn't overlap.
+4. A bug was found when I changed the places to cards, the Modal would show up inside the card. 
+    - By moving the code of the modal outside the card but still inside the if session user statement the bug was fixed.
 
 ---
 
